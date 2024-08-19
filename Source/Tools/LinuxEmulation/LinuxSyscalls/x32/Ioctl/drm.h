@@ -10,20 +10,20 @@ extern "C" {
 // drm headers use a `__user` define that has an address_space attribute. This allows their tooling to see unsafe user-space accesses.
 // Define this to nothing so we don't need to modify those headers.
 #define __user
-#include "fex-drm/drm.h"
-#include "fex-drm/drm_mode.h"
-#include "fex-drm/i915_drm.h"
-#include "fex-drm/amdgpu_drm.h"
-#include "fex-drm/lima_drm.h"
-#include "fex-drm/panfrost_drm.h"
-#include "fex-drm/msm_drm.h"
-#include "fex-drm/nouveau_drm.h"
-#include "fex-drm/radeon_drm.h"
-#include "fex-drm/vc4_drm.h"
-#include "fex-drm/v3d_drm.h"
-#include "fex-drm/pvr_drm.h"
-#include "fex-drm/virtgpu_drm.h"
-#include "fex-drm/xe_drm.h"
+#include <drm/drm.h>
+#include <drm/drm_mode.h>
+#include <drm/i915_drm.h>
+#include <drm/amdgpu_drm.h>
+#include <drm/lima_drm.h>
+#include <drm/panfrost_drm.h>
+#include <drm/msm_drm.h>
+#include <drm/nouveau_drm.h>
+#include <drm/radeon_drm.h>
+#include <drm/vc4_drm.h>
+#include <drm/v3d_drm.h>
+#include <drm/pvr_drm.h>
+#include <drm/virtgpu_drm.h>
+#include <drm/xe_drm.h>
 }
 #include <sys/ioctl.h>
 
