@@ -182,7 +182,13 @@ endif()
 # Some defines for the softfloat library
 list(APPEND DEFINES "-DSOFTFLOAT_BUILTIN_CLZ")
 
-set (LIBS fmt::fmt xxHash::xxhash FEXHeaderUtils CodeEmitter)
+set (LIBS fmt::fmt FEXHeaderUtils CodeEmitter)
+
+if (SYSTEM_XXHASH)
+  list (APPEND LIBS xxhash)
+else()
+  list (APPEND LIBS xxHash::xxhash)
+endif()
 
 if (ENABLE_VIXL_DISASSEMBLER OR ENABLE_VIXL_SIMULATOR)
   list (APPEND LIBS vixl)

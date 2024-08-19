@@ -3,7 +3,13 @@ set(SRCS Main.cpp
   XXFileHash.cpp)
 
 add_executable(${NAME} ${SRCS})
-list(APPEND LIBS FEXCore Common xxHash::xxhash)
+list(APPEND LIBS FEXCore Common)
+
+if (SYSTEM_XXHASH)
+  list (APPEND LIBS xxhash)
+else()
+  list (APPEND LIBS xxHash::xxhash)
+endif()
 
 target_include_directories(${NAME} PRIVATE ${CMAKE_SOURCE_DIR}/Source/)
 
