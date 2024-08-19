@@ -265,7 +265,10 @@ set (CMAKE_LINKER_FLAGS_RELWITHDEBINFO "${CMAKE_LINKER_FLAGS_RELWITHDEBINFO} -fn
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fomit-frame-pointer")
 set (CMAKE_LINKER_FLAGS_RELEASE "${CMAKE_LINKER_FLAGS_RELEASE} -fomit-frame-pointer")
 
-include_directories(External/robin-map/include/)
+find_path(SYSTEM_ROBIN_MAP "${CMAKE_INCLUDE_PATH}/tsl/robin_map.h")
+if (NOT SYSTEM_ROBIN_MAP)
+  include_directories(External/robin-map/include/)
+endif()
 
 if (BUILD_TESTS)
   # Enable vixl disassembler if tests are enabled.
